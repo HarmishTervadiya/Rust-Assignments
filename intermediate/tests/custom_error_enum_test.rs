@@ -25,3 +25,16 @@ fn test_display() {
     let msg = format!("{}", err);
     assert!(msg.contains("10") && msg.contains("5"));
 }
+
+#[test]
+fn test_display_checksum() {
+    let err = DataError::ChecksumMismatch;
+    let msg = format!("{}", err);
+    assert!(!msg.is_empty());
+}
+
+#[test]
+fn test_too_long() {
+    let result = validate_packet(&[0u8; 12]);
+    assert!(matches!(result, Err(DataError::InvalidLength { .. })));
+}

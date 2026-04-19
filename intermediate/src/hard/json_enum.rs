@@ -3,7 +3,7 @@
 
   Define an enum Value representing a simplified JSON value:
   Null, Bool(bool), Number(f64), String(String), Array(Vec<Value>),
-  and Object(HashMap<String, Value>). Implement a method fn to_string(&self) -> String
+  and Object(HashMap<String, Value>). Implement a method fn to_json_string(&self) -> String
   that produces a JSON-formatted string.
 
   Run the tests for this problem with:

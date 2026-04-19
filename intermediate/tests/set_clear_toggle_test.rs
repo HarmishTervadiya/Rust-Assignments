@@ -24,3 +24,8 @@ fn test_toggle_on() {
 fn test_toggle_off() {
     assert_eq!(toggle_bit(0b1000, 3), 0b0000);
 }
+
+#[test]
+fn test_clear_already_clear() {
+    assert_eq!(clear_bit(0b0000, 2), 0b0000);
+}

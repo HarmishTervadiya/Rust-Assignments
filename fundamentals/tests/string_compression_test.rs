@@ -24,3 +24,13 @@ fn test_single_char() {
 fn test_all_same() {
     assert_eq!(compress("aaaa"), "a4");
 }
+
+#[test]
+fn test_tie_returns_original() {
+    assert_eq!(compress("aa"), "aa");
+}
+
+#[test]
+fn test_two_chars_returns_original() {
+    assert_eq!(compress("ab"), "ab");
+}

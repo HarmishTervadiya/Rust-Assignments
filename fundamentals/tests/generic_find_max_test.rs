@@ -25,3 +25,13 @@ fn test_empty() {
 fn test_strings() {
     assert_eq!(find_max(&["apple", "banana", "cherry"]), Some(&"cherry"));
 }
+
+#[test]
+fn test_all_equal() {
+    assert_eq!(find_max(&[5, 5, 5]), Some(&5));
+}
+
+#[test]
+fn test_all_negative() {
+    assert_eq!(find_max(&[-3, -1, -5]), Some(&-1));
+}

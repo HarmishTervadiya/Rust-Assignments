@@ -16,3 +16,10 @@ async fn test_new() {
     let limiter = RateLimiter::new(5);
     assert_eq!(limiter.semaphore.available_permits(), 5);
 }
+
+#[tokio::test]
+async fn test_single_permit() {
+    let limiter = RateLimiter::new(1);
+    limiter.acquire().await;
+    assert_eq!(limiter.semaphore.available_permits(), 0);
+}

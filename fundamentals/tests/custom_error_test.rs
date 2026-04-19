@@ -24,3 +24,8 @@ fn test_invalid_char() {
 fn test_boundary_3() {
     assert_eq!(validate_username("abc"), Ok(()));
 }
+
+#[test]
+fn test_boundary_20() {
+    assert_eq!(validate_username(&"a".repeat(20)), Ok(()));
+}

@@ -19,3 +19,8 @@ fn test_ff() {
 fn test_f0() {
     assert_eq!(extract_nibbles(0xF0), (0x0F, 0x00));
 }
+
+#[test]
+fn test_0f() {
+    assert_eq!(extract_nibbles(0x0F), (0x00, 0x0F));
+}

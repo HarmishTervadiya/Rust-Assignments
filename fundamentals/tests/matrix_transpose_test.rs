@@ -23,3 +23,14 @@ fn test_empty() {
     let m: Vec<Vec<i32>> = vec![];
     assert_eq!(transpose(m), Vec::<Vec<i32>>::new());
 }
+
+#[test]
+fn test_single_column() {
+    let m = vec![vec![1], vec![2], vec![3]];
+    assert_eq!(transpose(m), vec![vec![1, 2, 3]]);
+}
+
+#[test]
+fn test_1x1() {
+    assert_eq!(transpose(vec![vec![9]]), vec![vec![9]]);
+}

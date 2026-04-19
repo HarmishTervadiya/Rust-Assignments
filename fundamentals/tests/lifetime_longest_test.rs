@@ -19,3 +19,8 @@ fn test_equal_length() {
 fn test_empty_and_nonempty() {
     assert_eq!(longest("", "x"), "x");
 }
+
+#[test]
+fn test_both_empty() {
+    assert_eq!(longest("", ""), "");
+}

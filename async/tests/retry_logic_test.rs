@@ -27,3 +27,9 @@ async fn test_max_retries_exceeded() {
     let result: Result<i32, &str> = retry_operation(|| async { Err("always fail") }, 2).await;
     assert_eq!(result, Err("always fail"));
 }
+
+#[tokio::test]
+async fn test_zero_retries() {
+    let result: Result<i32, &str> = retry_operation(|| async { Err("fail") }, 0).await;
+    assert!(result.is_err());
+}

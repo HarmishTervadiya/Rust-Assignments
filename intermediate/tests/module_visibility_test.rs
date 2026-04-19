@@ -25,3 +25,10 @@ fn test_withdraw_insufficient() {
     let mut acc = Account::new(10.0);
     assert!(acc.withdraw(20.0).is_err());
 }
+
+#[test]
+fn test_withdraw_exact_balance() {
+    let mut acc = Account::new(100.0);
+    assert!(acc.withdraw(100.0).is_ok());
+    assert!((acc.balance() - 0.0).abs() < f64::EPSILON);
+}

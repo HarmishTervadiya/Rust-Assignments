@@ -36,3 +36,11 @@ fn test_display_sorted() {
     assert!(display.starts_with("Alice: 222"));
     assert!(display.contains("Charlie: 111"));
 }
+
+#[test]
+fn test_overwrite_entry() {
+    let mut pb = Phonebook::new();
+    pb.add("Alice", "123-0000");
+    pb.add("Alice", "999-1111");
+    assert_eq!(pb.lookup("Alice"), Some(&"999-1111".to_string()));
+}

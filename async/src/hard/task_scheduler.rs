@@ -6,7 +6,7 @@
   of tasks and a background tokio task to execute them when their time comes.
 
   Run the tests for this problem with:
-    cargo test --test task_scheduler_test0
+    cargo test --test task_scheduler_test
 */
 
 use tokio::time::{sleep, Duration, Instant};

@@ -19,3 +19,8 @@ fn test_all_above() {
 fn test_empty() {
     assert_eq!(count_above(&vec![], 5), 0);
 }
+
+#[test]
+fn test_equal_to_threshold() {
+    assert_eq!(count_above(&vec![10], 10), 0);
+}

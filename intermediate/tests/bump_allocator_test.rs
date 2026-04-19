@@ -29,3 +29,17 @@ fn test_exact_memory() {
     assert!(bump.alloc(1024).is_ok());
     assert_eq!(bump.cursor, 1024);
 }
+
+#[test]
+fn test_initial_cursor_is_zero() {
+    let bump = BumpAllocator::new();
+    assert_eq!(bump.cursor, 0);
+}
+
+#[test]
+fn test_zero_size_alloc() {
+    let mut bump = BumpAllocator::new();
+    let slice = bump.alloc(0).unwrap();
+    assert_eq!(slice.len(), 0);
+    assert_eq!(bump.cursor, 0);
+}
