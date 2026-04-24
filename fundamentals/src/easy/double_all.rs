@@ -8,6 +8,10 @@
     cargo test --test double_all_test
 */
 
-pub fn double_all(values: &mut Vec<i32>) {
-    todo!()
+pub fn double_all(nums: &mut Vec<i32>) {
+    *nums = nums.iter_mut().map(|x| *x * 2).collect();
+
+    // for num in nums{
+    //   *num= *num * 2;
+    // }
 }
