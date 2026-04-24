@@ -9,5 +9,22 @@
 */
 
 pub fn classify_char(c: char) -> &'static str {
-    todo!()
+    match c {
+        'a'..='z' | 'A'..='z' => "alphabetic",
+        '0'..='9' => "numeric",
+        x if x.is_whitespace() => "whitespace",
+        _ => "other",
+    }
+
+    // Other approach
+
+    // match c {
+    //     _ if c.is_alphabetic() => "alphabetic",
+    //     _ if c.is_numeric() => "numeric",
+    //     _ if c.is_whitespace() => "whitespace",
+    //     _ => "other",
+    // }
+
+    // or ḍirect if statements like without a match
+    // if c.is_alphabetic() => "alphabetic"
 }

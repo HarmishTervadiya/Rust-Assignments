@@ -8,6 +8,8 @@
     cargo test --test celsius_fahrenheit_test
 */
 
+use std::ops::{Add, Mul};
+
 pub fn celsius_to_fahrenheit(c: f64) -> f64 {
-    todo!()
+    c.mul(9.0/5.0).add(32.00)
 }
