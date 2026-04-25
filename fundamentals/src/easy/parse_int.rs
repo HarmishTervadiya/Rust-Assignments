@@ -9,5 +9,6 @@
 */
 
 pub fn parse_int(s: &str) -> Result<i32, String> {
-    todo!()
+    let s=s.parse::<i32>().map_err(|_| "Parsing failed".to_string())?;
+    Ok(s)
 }
