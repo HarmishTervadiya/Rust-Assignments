@@ -9,6 +9,6 @@
     cargo test --test lifetime_longest_test
 */
 
-pub fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str {
-    todo!()
+pub fn longest<'a>(a: &'a str, b: &'a str)-> & 'a str {
+  if a.len() >= b.len() { a } else {b}
 }
