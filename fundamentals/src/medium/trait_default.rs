@@ -11,18 +11,15 @@
 
 pub trait Greet {
     fn name(&self) -> &str;
-
     fn greeting(&self) -> String {
         format!("Hello, {}!", self.name())
     }
 }
 
-pub struct Person {
-    pub name: String,
-}
+pub struct Person{ pub name:String }
 
 impl Greet for Person {
     fn name(&self) -> &str {
-        todo!()
+        &self.name
     }
 }
