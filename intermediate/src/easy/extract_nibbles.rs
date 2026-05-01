@@ -9,5 +9,5 @@
 */
 
 pub fn extract_nibbles(byte: u8) -> (u8, u8) {
-    todo!()
+    (byte>>4 & 0x0F, byte & 0x0F)
 }

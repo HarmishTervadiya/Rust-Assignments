@@ -11,7 +11,7 @@
 */
 
 use std::collections::HashMap;
-use std::fmt;
+use std::fmt::{self, Write};
 
 pub struct Phonebook {
     pub entries: HashMap<String, String>,
@@ -19,24 +19,34 @@ pub struct Phonebook {
 
 impl Phonebook {
     pub fn new() -> Self {
-        todo!()
+        Phonebook {
+            entries: HashMap::new(),
+        }
     }
 
     pub fn add(&mut self, name: &str, phone: &str) {
-        todo!()
+        self.entries.insert(name.to_string(), phone.to_string());
     }
 
     pub fn lookup(&self, name: &str) -> Option<&String> {
-        todo!()
+        self.entries.get(name)
     }
 
     pub fn remove(&mut self, name: &str) -> bool {
-        todo!()
+        self.entries.remove(name).is_some()
     }
 }
 
 impl fmt::Display for Phonebook {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        todo!()
+        let mut pairs: Vec<_> = self.entries.iter().collect();
+
+        pairs.sort_by(|(name1, _), (name2, _)| name1.cmp(name2));
+        
+        for (name, phone) in pairs.iter(){
+            writeln!(f, "{}: {}", name, phone)?;
+        }
+
+        Ok(())
     }
 }
